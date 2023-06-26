@@ -42,7 +42,7 @@ public class UserController {
     }
 
     @PostMapping(value = "users/add")
-    public String addUser(@ModelAttribute("user") User user) {
+    public String create(@ModelAttribute("user") User user) {
         userService.addUser(user);
         return "redirect:/";
     }
@@ -66,7 +66,7 @@ public class UserController {
     }
 
     @GetMapping("users/{id}")
-    public String show(@PathVariable("id") Long id, ModelMap modelMap) {
+    public String getUser(@PathVariable("id") Long id, ModelMap modelMap) {
         modelMap.addAttribute("user", userService.getUserById(id));
         return "show";
     }
