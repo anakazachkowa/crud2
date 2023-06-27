@@ -10,10 +10,9 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-public class UserDaoImp implements UserDao{
+public class UserDaoImp implements UserDao {
     @PersistenceContext
     private EntityManager entityManager;
-
 
 
     @Override
@@ -42,7 +41,7 @@ public class UserDaoImp implements UserDao{
     @Override
     public List<User> getAllUsers() {
 
-        return entityManager.createQuery("FROM User",User.class).getResultList();
+        return entityManager.createQuery("FROM User", User.class).getResultList();
     }
 }
 

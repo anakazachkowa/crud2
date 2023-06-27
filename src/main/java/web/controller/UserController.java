@@ -1,7 +1,6 @@
 package web.controller;
 
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,7 +35,7 @@ public class UserController {
     }
 
     @GetMapping(value = "users/add")
-    public String addUser(Model model) {
+    public String getNewUser(Model model) {
         model.addAttribute("user", new User());
         return "addUser";
     }
@@ -48,13 +47,13 @@ public class UserController {
     }
 
     @GetMapping(value = "users/edit/{id}")
-    public String edit(ModelMap model, @PathVariable("id") Long id) {
-         model.addAttribute("user", userService.getUserById(id));
+    public String getNewUserData(ModelMap model, @PathVariable("id") Long id) {
+        model.addAttribute("user", userService.getUserById(id));
         return "editUser";
     }
 
     @PostMapping(value = "users/edit")
-    public String update (@ModelAttribute("user")  User user) {
+    public String update(@ModelAttribute("user") User user) {
         userService.editUser(user);
         return "redirect:/";
     }
